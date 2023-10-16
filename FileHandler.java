@@ -26,8 +26,8 @@ import java.util.Scanner;
  */
 public class FileHandler {
     /**
-     * Takes user input for a file name, attempts to open the file, and then prints out its second
-     * line if the file is found. Displays an error message if the file is invalid.
+     * Takes user input for a file name, attempts to open the file, and then prints out its contents.
+     * Displays an error message if the file is invalid.
      *
      * @param args Command-line arguments (not used in this program).
      */
@@ -43,15 +43,10 @@ public class FileHandler {
 
             try {
                 reader = openFile(fileName);
-                String line = null;
-                int lineCount = 1;
+                String line;
 
                 while ((line = reader.readLine()) != null) {
-                    if (lineCount == 2) {
-                        System.out.println(line);
-                        break;
-                    }
-                    lineCount++;
+                    System.out.println(line); // Print each line of the file
                 }
                 isFileOpened = true;
             } catch (FileNotFoundException e) {
